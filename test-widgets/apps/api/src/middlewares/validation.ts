@@ -13,7 +13,7 @@ const ContactSchema = Yup.object().shape({
     firstName: Yup.string().required('First name is required').trim(),
     lastName: Yup.string().required('Last name is required').trim(),
     phoneNumber: Yup.string().required('Phone number is required').trim().matches(/^\+?[1-9]\d{1,14}$/, 'Phone number must be a valid international format (e.g., +1234567890)'),
-    type: Yup.string().oneOf(['personal', 'business', 'family'], 'Type must be one of: personal, business, family'),
+    type: Yup.string().oneOf(['personal', 'business', 'family'], 'Type must be one of: personal, business, family').optional(),
     address: AddressSchema.optional(),
     dateOfBirth: Yup.string().optional().test('is-date', 'Date of birth must be a valid date', value => {
         if (!value) return true
