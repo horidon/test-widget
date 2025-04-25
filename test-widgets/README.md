@@ -1,27 +1,24 @@
-# TestWidgets
-
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
 ## Run tasks
 
-To run the dev server for your app, use:
+To run the dev server for frontend and backend
 
 ```sh
-npx nx serve test-widgets
+npx nx run-many --target=serve --projects=my-app,api --parallel
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build test-widgets
+npx nx build my-app
 ```
 
-To see all available targets to run for a project, run:
-
+## Seed data
 ```sh
-npx nx show project test-widgets
+curl --location 'http://localhost:3000/contacts' \
+--header 'Content-Type: application/json' \
+--data '{
+    "firstName": "Jonh",
+    "lastName": "Doe",
+    "phoneNumber": "+1234567890"
+}'
 ```

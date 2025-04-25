@@ -13,7 +13,7 @@ export interface IContact {
         postalCode?: string
         country?: string
     }
-    dateOfBirth?: Date
+    dateOfBirth?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
 }
@@ -69,7 +69,7 @@ export const deleteContact = (id: string): IContact => {
 
     const deletedContact = contactStore[contactIndex]
     contactStore.splice(contactIndex, 1)
-    
+
     console.log('Contact deleted:', deletedContact)
     return deletedContact
 }
